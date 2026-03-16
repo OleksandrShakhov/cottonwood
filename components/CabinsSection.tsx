@@ -29,7 +29,6 @@ const cabins: Cabin[] = [
       "/cabins/image5.jpeg",
       "/cabins/image6.jpeg",
       "/cabins/image7.jpeg",
-      "/cabins/image8.jpeg",
       "/cabins/image9.jpeg",
       "/cabins/image10.jpeg",
       "/cabins/image11.jpeg",
@@ -59,7 +58,6 @@ const cabins: Cabin[] = [
       "/cabins/image5.jpeg",
       "/cabins/image6.jpeg",
       "/cabins/image7.jpeg",
-      "/cabins/image8.jpeg",
       "/cabins/image9.jpeg",
       "/cabins/image10.jpeg",
       "/cabins/image11.jpeg",
@@ -82,7 +80,7 @@ const cabins: Cabin[] = [
 
 export default function CabinsSection() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
+    <section id="cabins" className="max-w-7xl mx-auto px-6 py-20">
       {/* Section Header */}
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">

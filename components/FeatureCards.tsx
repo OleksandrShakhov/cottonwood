@@ -13,37 +13,37 @@ const features: FeatureCard[] = [
   {
     title: "Seasonal Campground",
     icon: <FaCampground size={28} className="text-green-600" />,
-    href: "/seasonal",
+    href: "/#seasonal-camping",
     description: "Full-service RV sites and riverfront camping",
   },
   {
     title: "Cabins",
     icon: <FaHome size={28} className="text-green-600" />,
-    href: "/cabins",
+    href: "/#cabins",
     description: "Cozy cabins for families and groups",
   },
   {
     title: "Amenities",
     icon: <FaTree size={28} className="text-green-600" />,
-    href: "/amenities",
+    href: "/#amenities",
     description: "Playground, trails, bathrooms, and more",
   },
   {
     title: "Gallery",
     icon: <FaImages size={28} className="text-green-600" />,
-    href: "/gallery",
+    href: "/#gallery",
     description: "Photos of our campground, cabins, and wildlife",
   },
   {
     title: "Location",
     icon: <FaMapMarkedAlt size={28} className="text-green-600" />,
-    href: "/location",
+    href: "/#contact",
     description: "Find us along the Belly River",
   },
   {
     title: "Contact",
     icon: <FaEnvelope size={28} className="text-green-600" />,
-    href: "/contact",
+    href: "/#footer",
     description: "Get in touch or send us a message",
   },
 ];

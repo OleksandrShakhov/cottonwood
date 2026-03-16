@@ -33,7 +33,7 @@ const amenities: Amenity[] = [
 
 export default function AmenitiesSection() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
+    <section id="amenities" className="max-w-7xl mx-auto px-6 py-20">
       {/* Section Header */}
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">

@@ -7,57 +7,73 @@ import { motion, AnimatePresence } from "framer-motion";
 import { IoClose } from "react-icons/io5";
 
 export default function GallerySection() {
-  const [visibleCount, setVisibleCount] = useState(8);
-  const [selectedImage, setSelectedImage] = useState<{ src: string; title: string } | null>(null);
+  const [visibleCount, setVisibleCount] = useState(16);
+  const [selectedImage, setSelectedImage] = useState<{
+    src: string;
+    title?: string;
+    description?: any;
+} | null>(null);
 
-  const visibleImages = galleryData.slice(0, visibleCount);
+  type GalleryImage = {
+    src: string;
+    title?: string;
+    description?: any;
+  };
+
+  const typedGalleryData: GalleryImage[] = galleryData;
+
+  const visibleImages = typedGalleryData.slice(0, visibleCount);
 
   const handleSeeMore = () => {
-    setVisibleCount((prev) => Math.min(prev + 8, galleryData.length));
+    setVisibleCount((prev) => Math.min(prev + 16, galleryData.length));
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
-      {/* Section Header */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Gallery Highlights
-        </h2>
-        <p className="text-gray-600 mt-4 max-w-3xl mx-auto text-base md:text-lg">
-          Take a glimpse of Cottonwood Canyon Campground. Click on any image to view it in full.
+    <section id="gallery" className="max-w-7xl mx-auto px-6 py-20">
+
+      {/* Section Title & Description */}
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-bold text-gray-900">Gallery</h2>
+        <p className="text-gray-600 mt-4">
+          Explore our beautiful Cottonwood Canyon Campground through these images. 
+          From scenic views to cozy camping spots, get a glimpse of what awaits you.
         </p>
       </div>
-
-      {/* Masonry Grid */}
-      <div className="columns-1 sm:columns-2 lg:columns-4 gap-4 space-y-4">
+      
+      {/* Image Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {visibleImages.map((img, idx) => (
           <motion.div
             key={idx}
             whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            className="relative cursor-pointer rounded-xl overflow-hidden shadow-lg break-inside"
+            transition={{ duration: 0.25 }}
+            className="relative cursor-pointer group overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition"
             onClick={() => setSelectedImage(img)}
           >
-            <Image
-              src={img.src}
-              alt={img.title}
-              width={300}
-              height={300}
-              className="w-full h-auto object-cover rounded-xl"
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-black/40 p-2 text-white text-sm text-center">
-              {img.title}
+            <div className="relative aspect-square">
+              <Image
+                src={img.src}
+                alt={img.title || `Gallery image ${idx + 1}`}
+                fill
+                className="object-cover group-hover:scale-110 transition duration-500"
+              />
             </div>
+            {/* Optional overlay with title */}
+            {img.title && (
+              <div className="absolute bottom-0 left-0 w-full bg-black/50 text-white p-2 text-sm font-medium">
+                {img.title}
+              </div>
+            )}
           </motion.div>
         ))}
       </div>
 
       {/* See More Button */}
       {visibleCount < galleryData.length && (
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-12">
           <button
             onClick={handleSeeMore}
-            className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md font-medium transition"
+            className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-lg font-medium transition shadow-md"
           >
             See More Images
           </button>
@@ -71,27 +87,35 @@ export default function GallerySection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-6"
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-6"
+            onClick={() => setSelectedImage(null)}
           >
-            <div className="relative max-w-4xl w-full">
+            <div className="relative max-w-5xl w-full">
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition"
+                className="absolute -top-12 right-0 text-white text-4xl hover:text-gray-300 transition"
               >
                 <IoClose />
               </button>
+
               <Image
                 src={selectedImage.src}
-                alt={selectedImage.title}
-                width={1200}
-                height={800}
-                className="object-contain rounded-xl"
+                alt={selectedImage.title || "Gallery Image"}
+                width={1400}
+                height={900}
+                className="object-contain rounded-2xl w-full h-auto"
               />
-              <p className="text-white text-center mt-4 text-lg">{selectedImage.title}</p>
+              {selectedImage.title && (
+                <p className="text-white mt-4 text-center text-lg">{selectedImage.title}</p>
+              )}
+              {selectedImage.description && (
+                <p className="text-gray-300 mt-2 text-center">{selectedImage.description}</p>
+              )}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
     </section>
   );
 }

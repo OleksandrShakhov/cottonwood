@@ -6,12 +6,11 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: "Seasonal Camping", href: "/seasonal" },
-  { name: "Cabins", href: "/cabins" },
-  { name: "Amenities", href: "/amenities" },
-  { name: "Gallery", href: "/gallery" },
-  { name: "Location", href: "/location" },
-  { name: "Contact", href: "/contact" },
+  { name: "Seasonal Camping", href: "/#seasonal-camping" },
+  { name: "Cabins", href: "/#cabins" },
+  { name: "Amenities", href: "/#amenities" },
+  { name: "Gallery", href: "/#gallery" },
+  { name: "Location", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -49,7 +48,7 @@ export default function Navbar() {
             ))}
 
             <Link
-              href="/contact"
+              href="/#contact"
               className="bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800 transition"
             >
               Book / Contact
@@ -93,7 +92,7 @@ export default function Navbar() {
                 ))}
 
                 <Link
-                  href="/contact"
+                  href="/#contact"
                   className="mt-2 bg-green-700 text-white py-3 text-center rounded-lg"
                 >
                   Book / Contact

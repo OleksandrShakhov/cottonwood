@@ -4,7 +4,7 @@ import { AiFillFilePdf } from "react-icons/ai";
 
 export default function SeasonalCampingSection() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
+    <section id="seasonal-camping" className="max-w-7xl mx-auto px-6 py-20">
       {/* Section Intro */}
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
