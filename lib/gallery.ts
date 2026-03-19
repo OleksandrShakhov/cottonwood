@@ -6,5 +6,8 @@ export type GalleryItem = {
 };
 
 export function getGallery(): GalleryItem[] {
-  return gallery;
+  return (gallery as { src: string; title?: string }[]).map((item, index) => ({
+    src: item.src,
+    title: item.title ?? `Image ${index + 1}`,
+  }));
 }
