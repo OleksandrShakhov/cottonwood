@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Cabins", href: "/#cabins" },
   { name: "Amenities", href: "/#amenities" },
   { name: "Gallery", href: "/#gallery" },
+  { name: "Events Calendar", href: "/#events-calendar" },
   { name: "Location", href: "/#contact" },
 ];
 
