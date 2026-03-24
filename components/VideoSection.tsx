@@ -8,8 +8,11 @@ export default function VideoSection() {
       <div className="aspect-video">
         <iframe
           className="w-full h-full rounded-xl"
-          src="https://www.youtube.com/embed/YOUR_VIDEO"
-          title="Campground video"
+          src="https://www.youtube.com/embed/abgSppN_Zis?si=pq_Uw9_yoPq-JcUt"
+          title="Cottonwood Canyon Campground Video"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
         />
       </div>

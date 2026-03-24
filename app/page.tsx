@@ -8,6 +8,8 @@ import AmenitiesSection from "@/components/AmenitiesSection";
 import ContactSection from "@/components/ContactSection";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 
+import EventsCalendar from "@/components/EventsCalendar";
+
 
 export default function Home() {
   return (
@@ -20,6 +22,9 @@ export default function Home() {
       <CabinsSection />
 
       <AmenitiesSection />
+
+      <EventsCalendar />
+
       <ContactSection />
       <ScrollToTopButton />
 

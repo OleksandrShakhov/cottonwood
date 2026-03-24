@@ -72,7 +72,6 @@ const cabins: Cabin[] = [
       "BBQ on deck",
       "Fire ring & complimentary firewood",
       "Camping chairs & beach towels",
-      "Pet friendly cabin available",
     ],
     airbnbLink: "https://www.airbnb.ca/rooms/992298227748138136",
   },

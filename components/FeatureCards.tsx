@@ -29,10 +29,10 @@ const features: FeatureCard[] = [
     description: "Playground, trails, bathrooms, and more",
   },
   {
-    title: "Gallery",
-    icon: <FaImages size={28} className="text-green-600" />,
-    href: "/#gallery",
-    description: "Photos of our campground, cabins, and wildlife",
+    title: "Events Calendar",
+    icon: <FaImages size={28} className="text-green-600" />, // keep same icon style or change if desired
+    href: "/#events-calendar", // link to your calendar section/page
+    description: "Check out all upcoming campground events",
   },
   {
     title: "Location",

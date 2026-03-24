@@ -12,10 +12,10 @@ export default function SeasonalCampingSection() {
         </h2>
         <p className="text-gray-600 mt-4 max-w-3xl mx-auto text-base md:text-lg">
           Discover the perfect seasonal getaway at Cottonwood Canyon Campground.  
-          Nestled along the serene Belly River, our campground offers full-service RV sites,  
-          modern cabins, and family-friendly amenities. Explore the river, watch wildlife,  
-          and enjoy easy access to Waterton National Park.  
-          Each site is designed for comfort and convenience, whether you’re here for a weekend escape or a long seasonal stay.
+Nestled along the serene Belly River, our campground offers full-service RV sites,  
+modern cabins, and family-friendly amenities. Explore the river, watch wildlife,  
+and enjoy peaceful scenic drives through the beautiful surrounding countryside.  
+Each site is designed for comfort and convenience, making it ideal for your seasonal stay.
         </p>
       </div>
 
@@ -60,7 +60,8 @@ export default function SeasonalCampingSection() {
           <FaWifi size={36} className="text-green-600 mb-4" />
           <h3 className="font-semibold mb-2">Communal Wi-Fi</h3>
           <p className="text-gray-500 text-sm">
-            Stay connected while enjoying nature with reliable campground Wi-Fi.
+            Stay connected while enjoying nature with communal Wi-Fi, suitable for messaging and basic browsing. 
+            Upgraded high-speed internet for streaming is available through a third-party provider.
           </p>
         </div>
         <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition hover:scale-105">

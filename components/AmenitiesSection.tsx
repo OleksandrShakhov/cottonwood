@@ -24,11 +24,18 @@ const amenities: Amenity[] = [
     items: ["Bathrooms with flush toilets", "Dog off-leash area", "Walking trails", "River berm trail"],
   },
   {
-    title: "Coming Soon",
-    icon: <GiCampingTent size={32} className="text-yellow-500 animate-pulse" />,
-    items: ["Laundry shed", "Shower facility", "Recreation center", "Pickleball courts", "Entertainment room", "Basketball court"],
-    comingSoon: true,
-  },
+  title: "Coming Soon",
+  icon: <GiCampingTent size={32} className="text-yellow-500 animate-pulse" />,
+  items: [
+    "Laundry Facilities",
+    "Shower facility",
+    "Recreation center",
+    "Pickleball courts",
+    "Entertainment room",
+    "Basketball court"
+  ],
+  comingSoon: true,
+},
 ];
 
 export default function AmenitiesSection() {

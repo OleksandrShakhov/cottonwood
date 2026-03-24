@@ -71,8 +71,7 @@ export default function HeroSlider() {
             "
           >
             <h1 className="text-3xl md:text-4xl font-bold mb-3 leading-tight">
-              Cottonwood Canyon
-              <span className="block text-green-300">Campground</span>
+              Cottonwood Canyon Campground
             </h1>
             <p className="text-sm md:text-base text-gray-200 mb-6">
               A peaceful seasonal campground beside the Belly River.
@@ -81,13 +80,13 @@ export default function HeroSlider() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
-                href="/seasonal"
+                href="#seasonal-camping"
                 className="bg-green-700 hover:bg-green-800 text-white px-5 py-3 rounded-md font-medium transition text-center"
               >
                 Seasonal Camping
               </Link>
               <Link
-                href="/cabins"
+                href="#cabins"
                 className="bg-white hover:bg-gray-100 text-gray-900 px-5 py-3 rounded-md font-medium transition text-center"
               >
                 View Cabins
