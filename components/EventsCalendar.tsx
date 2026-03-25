@@ -1,5 +1,5 @@
 import { FaCalendarAlt } from "react-icons/fa";
-import eventsData from "@/data/events.json";
+import { supabase } from "@/lib/supabase";
 
 export type EventItem = {
   date: string;
@@ -7,8 +7,13 @@ export type EventItem = {
   description?: string;
 };
 
-export default function EventsCalendar() {
-  const events: EventItem[] = eventsData;
+export default async function EventsCalendar() {
+  const { data } = await supabase
+    .from("events")
+    .select("*")
+    .order("date");
+
+  const events: EventItem[] = data || [];
 
   return (
     <section id="events-calendar" className="py-16 bg-gray-50">
@@ -27,7 +32,9 @@ export default function EventsCalendar() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {events.map((event) => {
             const eventDate = new Date(event.date);
-            const month = eventDate.toLocaleString("default", { month: "short" }).toUpperCase();
+            const month = eventDate
+              .toLocaleString("default", { month: "short" })
+              .toUpperCase();
             const day = eventDate.getDate();
 
             return (
@@ -43,9 +50,13 @@ export default function EventsCalendar() {
 
                 {/* Event details */}
                 <div className="p-6 text-left">
-                  <h3 className="font-semibold text-lg mb-2">{event.title}</h3>
+                  <h3 className="font-semibold text-lg mb-2">
+                    {event.title}
+                  </h3>
                   {event.description && (
-                    <p className="text-gray-500 text-sm">{event.description}</p>
+                    <p className="text-gray-500 text-sm">
+                      {event.description}
+                    </p>
                   )}
                 </div>
               </div>
