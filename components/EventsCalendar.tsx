@@ -1,5 +1,5 @@
 import { FaCalendarAlt } from "react-icons/fa";
-import { supabase } from "@/lib/supabase";
+import eventsData from "@/data/events.json";
 
 export type EventItem = {
   date: string;
@@ -7,13 +7,9 @@ export type EventItem = {
   description?: string;
 };
 
-export default async function EventsCalendar() {
-  const { data } = await supabase
-    .from("events")
-    .select("*")
-    .order("date");
-
-  const events: EventItem[] = data || [];
+export default function EventsCalendar() {
+  // Use static JSON data instead of Supabase
+  const events: EventItem[] = eventsData || [];
 
   return (
     <section id="events-calendar" className="py-16 bg-gray-50">
