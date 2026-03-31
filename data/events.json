@@ -1,32 +1,8 @@
 [
   {
-    "date": "2026-06-15",
-    "title": "Summer Kickoff BBQ",
-    "description": "Join us for food, fun, and games!"
-  },
-  {
-    "date": "2026-07-04",
-    "title": "Independence Day Celebration",
-    "description": "Fireworks and activities for the whole family."
-  },
-  {
-    "date": "2026-08-20",
-    "title": "Fishing Tournament",
-    "description": "Show off your skills and win prizes!"
-  },
-  {
-    "date": "2026-09-10",
-    "title": "Fall Harvest Festival",
-    "description": "Seasonal crafts, music, and treats."
-  },
-  {
-    "date": "2026-10-31",
-    "title": "Halloween Campfire Night",
-    "description": "Costumes, stories, and spooky fun."
-  },
-  {
-    "date": "2026-12-05",
-    "title": "Holiday Lights Event",
-    "description": "Celebrate the season with lights and cheer."
+    "date": "2026-05-23",
+    "time": "5:30 PM",
+    "title": "Welcome Back BBQ featuring live music from Undefined",
+    "description": "Join us for food, fun, and live music to kick off the season!"
   }
 ]
