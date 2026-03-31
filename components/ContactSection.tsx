@@ -1,8 +1,73 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 
+function encode(data: Record<string, string>) {
+  return new URLSearchParams(data).toString();
+}
+
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+    botField: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<"" | "success" | "error">("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name === "bot-field" ? "botField" : name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus("");
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: encode({
+          "form-name": "contact",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          "bot-field": formData.botField,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+          botField: "",
+        });
+        window.location.href = "/thank-you";
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="max-w-7xl mx-auto px-6 py-24">
       <div className="text-center mb-16">
@@ -96,14 +161,19 @@ export default function ContactSection() {
           <form
             name="contact"
             method="POST"
-            action="/"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            encType="application/x-www-form-urlencoded"
+            onSubmit={handleSubmit}
             className="bg-white shadow-xl rounded-2xl p-8 space-y-6"
           >
             <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" />
+
+            <input
+              type="hidden"
+              name="bot-field"
+              value={formData.botField}
+              onChange={handleChange}
+            />
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -112,6 +182,8 @@ export default function ContactSection() {
               <input
                 type="text"
                 name="name"
+                value={formData.name}
+                onChange={handleChange}
                 required
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-600 focus:outline-none"
               />
@@ -124,6 +196,8 @@ export default function ContactSection() {
               <input
                 type="email"
                 name="email"
+                value={formData.email}
+                onChange={handleChange}
                 required
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-600 focus:outline-none"
               />
@@ -136,6 +210,8 @@ export default function ContactSection() {
               <textarea
                 name="message"
                 rows={5}
+                value={formData.message}
+                onChange={handleChange}
                 required
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-600 focus:outline-none"
               />
@@ -143,10 +219,17 @@ export default function ContactSection() {
 
             <button
               type="submit"
-              className="w-full bg-green-700 hover:bg-green-800 text-white py-3 rounded-lg font-medium transition shadow-md"
+              disabled={isSubmitting}
+              className="w-full bg-green-700 hover:bg-green-800 disabled:opacity-70 text-white py-3 rounded-lg font-medium transition shadow-md"
             >
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
+
+            {status === "error" && (
+              <p className="text-red-600 text-sm">
+                Something went wrong. Please try again.
+              </p>
+            )}
           </form>
         </motion.div>
       </div>
