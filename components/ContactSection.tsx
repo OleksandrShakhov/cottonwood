@@ -5,12 +5,9 @@ import { motion } from "framer-motion";
 export default function ContactSection() {
   return (
     <section id="contact" className="max-w-7xl mx-auto px-6 py-24">
-
       {/* Section Title */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-gray-900">
-          Contact Us
-        </h2>
+        <h2 className="text-4xl font-bold text-gray-900">Contact Us</h2>
         <p className="text-gray-600 mt-4">
           Have questions about Cottonwood Canyon Campground? Send us a message.
         </p>
@@ -18,7 +15,6 @@ export default function ContactSection() {
 
       {/* Two Column Layout */}
       <div className="grid lg:grid-cols-2 gap-12 items-start">
-
         {/* LEFT SIDE — Contact Info + Location */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -27,28 +23,44 @@ export default function ContactSection() {
           className="space-y-6"
         >
           <div className="bg-white shadow-xl rounded-2xl p-6 space-y-6">
-            
             {/* Contact Info */}
             <div className="space-y-3">
               <h3 className="text-2xl font-semibold text-gray-900">
                 Contact Info
               </h3>
-              <p className="text-gray-600"><strong>Name:</strong> Derrick Beck</p>
+
               <p className="text-gray-600">
-                <strong>Email:</strong> 
-                <a href="mailto:CottonwoodCanyonCampground@gmail.com" className="text-green-700 hover:underline ml-1">
+                <strong>Name:</strong> Derrick Beck
+              </p>
+
+              <p className="text-gray-600">
+                <strong>Email:</strong>
+                <a
+                  href="mailto:CottonwoodCanyonCampground@gmail.com"
+                  className="text-green-700 hover:underline ml-1"
+                >
                   CottonwoodCanyonCampground@gmail.com
                 </a>
               </p>
+
               <p className="text-gray-600">
-                <strong>Phone:</strong> 
-                <a href="tel:4033085231" className="text-green-700 hover:underline ml-1">
+                <strong>Phone:</strong>
+                <a
+                  href="tel:4033085231"
+                  className="text-green-700 hover:underline ml-1"
+                >
                   403-308-5231
                 </a>
               </p>
+
               <p className="text-gray-600">
-                <strong>Facebook:</strong> 
-                <a href="https://www.facebook.com" target="_blank" className="text-green-700 hover:underline ml-1">
+                <strong>Facebook:</strong>
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-700 hover:underline ml-1"
+                >
                   Visit our page
                 </a>
               </p>
@@ -62,9 +74,9 @@ export default function ContactSection() {
               <h3 className="text-2xl font-semibold text-gray-900">
                 Our Location
               </h3>
-              <p className="text-gray-600">
-                Cottonwood Canyon Campground
-              </p>
+
+              <p className="text-gray-600">Cottonwood Canyon Campground</p>
+
               <p className="text-gray-600">
                 587R+VM, Mountain View, AB T0K 1N0
               </p>
@@ -80,7 +92,6 @@ export default function ContactSection() {
                 />
               </div>
             </div>
-
           </div>
         </motion.div>
 
@@ -93,10 +104,13 @@ export default function ContactSection() {
           <form
             name="contact"
             method="POST"
+            action="/thank-you"
             data-netlify="true"
+            netlify-honeypot="bot-field"
             className="bg-white shadow-xl rounded-2xl p-8 space-y-6"
           >
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
 
             {/* Name */}
             <div>
@@ -146,9 +160,7 @@ export default function ContactSection() {
             </button>
           </form>
         </motion.div>
-
       </div>
-
     </section>
   );
 }
